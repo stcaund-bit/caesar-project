@@ -24,7 +24,6 @@ public class FileManager {
 
     public void writeFile(String content, String filePath) throws CipherException {
         //  записать текст в файл, исходный файл перезаписывать нельзя
-        // TODO как понять в этом методе, что мы получили исходный файл?
         //throw new UnsupportedOperationException("Метод writeFile пока не написан");
         try {
             if (Files.exists(Path.of(filePath))) {
