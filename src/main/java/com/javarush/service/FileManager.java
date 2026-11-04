@@ -31,7 +31,7 @@ public class FileManager {
             }
             Files.writeString(Path.of(filePath), content);
         } catch (IOException e) {
-            throw new CipherException("Ошибка записи в файл: " + filePath);
+            throw new CipherException("Ошибка записи в файл: " + filePath, e);
         }
 
     }

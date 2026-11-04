@@ -101,19 +101,25 @@ public class MainApp {
         //  проверить их через validator, прочитать текст через fileManager,
         //  зашифровать через cipher и записать результат
         String fileFrom = ask("Введите путь к файлу, который следует зашифровать: ");
-        validator.isFileExists(fileFrom);
-        String fileTo = ask("Введите путь к файлу, в который будет записан зашиврованный текст: ");
-        validator.isFileNotExists(fileTo);
+        if (!validator.isFileExists(fileFrom)) {
+            throw new CipherException("Файл для считывания " + fileFrom + " не существует!");
+        }
+        String fileTo = ask("Введите путь к файлу, в который будет записан расшифрованный текст: ");
+        if (!validator.isFileNotExists(fileTo)) {
+            throw new CipherException("Файл для записи " + fileFrom + " уже существует! Введите другой файл для записи");
+        }
+
         int cipherCode = 0;
         try {
             cipherCode = Integer.parseInt(ask("Введите ключ: "));
         } catch (NumberFormatException e) {
-            System.out.println("Введен некорректный ключ!");
+            //System.out.println("Введен некорректный ключ!");
+            throw new CipherException("Введен некорректный ключ!", e);
         }
         String content = fileManager.readFile(fileFrom);
         System.out.println("Прочитан файл: " + fileFrom);
         String encoded = cipher.encrypt(content, cipherCode);
-        System.out.println("Закодировали содержимое: " + encoded);
+        System.out.println("Раскодировали содержимое: " + encoded);
         fileManager.writeFile(encoded, fileTo);
         System.out.println("Записан файл: " + fileTo);
         //System.out.println("Режим пока не реализован");
@@ -125,14 +131,20 @@ public class MainApp {
         //  проверить их через validator, прочитать текст через fileManager,
         //  зашифровать через cipher и записать результат
         String fileFrom = ask("Введите путь к файлу, который следует зашифровать: ");
-        validator.isFileExists(fileFrom);
+        if (!validator.isFileExists(fileFrom)) {
+            throw new CipherException("Файл для считывания " + fileFrom + " не существует!");
+        }
         String fileTo = ask("Введите путь к файлу, в который будет записан зашифрованный текст: ");
-        validator.isFileNotExists(fileTo);
+        if (!validator.isFileNotExists(fileTo)) {
+            throw new CipherException("Файл для записи " + fileFrom + " уже существует! Введите другой файл для записи");
+        }
+
         int cipherCode = 0;
         try {
             cipherCode = Integer.parseInt(ask("Введите ключ: "));
         } catch (NumberFormatException e) {
-            System.out.println("Введен некорректный ключ!");
+            //System.out.println("Введен некорректный ключ!");
+            throw new CipherException("Введен некорректный ключ!", e);
         }
         String content = fileManager.readFile(fileFrom);
         System.out.println("Прочитан файл: " + fileFrom);
@@ -148,9 +160,13 @@ public class MainApp {
         // подобрать ключ через bruteForce и записать расшифрованный текст
         //System.out.println("Режим пока не реализован");
         String fileFrom = ask("Введите путь к файлу, который следует зашифровать: ");
-        validator.isFileExists(fileFrom);
+        if (!validator.isFileExists(fileFrom)) {
+            throw new CipherException("Файл для считывания " + fileFrom + " не существует!");
+        }
         String fileTo = ask("Введите путь к файлу, в который будет записан зашиврованный текст: ");
-        validator.isFileNotExists(fileTo);
+        if (!validator.isFileNotExists(fileTo)) {
+            throw new CipherException("Файл для записи " + fileFrom + " уже существует! Введите другой файл для записи");
+        }
         String content = fileManager.readFile(fileFrom);
         System.out.println("Прочитан файл: " + fileFrom);
         String decodedByBtuteForce = bruteForce.decryptByBruteForce(content, ALPHABET);
