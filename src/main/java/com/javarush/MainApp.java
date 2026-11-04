@@ -40,13 +40,14 @@ public class MainApp {
 //        }
 
         //String s = cipher.encrypt("fабвегдеёжзиЙклмнопрстьъэюя!? ", 5);
-        String s = cipher.encrypt("мама мыла раму? мама немыла раму. они никогда не моет раму, только само стекло", 5);
-        System.out.println(cipher);
-        System.out.println("qwhgjhghfbv" + s);
 
-        System.out.println("Декрипт");
-        s = cipher.decrypt(s, 5);
-        System.out.println("Расшифровали: " + s);
+        //String s = cipher.encrypt("мама мыла раму? мама немыла раму. они никогда не моет раму, только само стекло", 5);
+        //System.out.println(cipher);
+        //System.out.println("qwhgjhghfbv" + s);
+
+        //System.out.println("Декрипт");
+        //s = cipher.decrypt(s, 5);
+        //System.out.println("Расшифровали: " + s);
 
         System.out.println("Шифр Цезаря: шифрование и расшифровка файлов");
 //
@@ -54,8 +55,8 @@ public class MainApp {
 //        System.out.println("Декриптед брут форсом: " + s);
 
         //s = bruteForce.decryptByBruteForce("Мама мыла раму? Мама немыла раму.Они никогда не моет раму, только само стекло", ALPHABET);
-        s = bruteForce.decryptByBruteForce("сеседс.редхесшгдсеседтйс.редхесш'дутндтнпузиедтйдсуйчдхесш:дчур,пудцесудцчйпру", ALPHABET);
-        System.out.println("Декриптед брут форсом: " + s);
+        //s = bruteForce.decryptByBruteForce("сеседс.редхесшгдсеседтйс.редхесш'дутндтнпузиедтйдсуйчдхесш:дчур,пудцесудцчйпру", ALPHABET);
+        //System.out.println("Декриптед брут форсом: " + s);
 
         //тестируем брутфорс
         //bruteForce.decryptByBruteForce("абвгд", ALPHABET);
@@ -125,7 +126,7 @@ public class MainApp {
         //  зашифровать через cipher и записать результат
         String fileFrom = ask("Введите путь к файлу, который следует зашифровать: ");
         validator.isFileExists(fileFrom);
-        String fileTo = ask("Введите путь к файлу, в который будет записан зашиврованный текст: ");
+        String fileTo = ask("Введите путь к файлу, в который будет записан зашифрованный текст: ");
         validator.isFileNotExists(fileTo);
         int cipherCode = 0;
         try {
