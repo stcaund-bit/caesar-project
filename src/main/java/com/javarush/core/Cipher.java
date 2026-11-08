@@ -42,7 +42,6 @@ public class Cipher {
   //                  System.out.println("Char at " + i + " "+ text.charAt(i));
    //                 System.out.println("entry value " + entry.getValue());
                     if (text.charAt(i) == entry.getValue()) {
-                        System.out.println((text.charAt(i) == entry.getValue()) + " char at i " + text.charAt(i) + " entry " + entry.getValue());
                         symbolCode = entry.getKey();
                     }
                 }
