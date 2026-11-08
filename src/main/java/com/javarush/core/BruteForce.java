@@ -21,7 +21,7 @@ public class BruteForce {
         //System.out.println("Длина алфавита: " + alphabet.length);
         //System.out.println("Длина зашифрованного текста: " + encryptedText.length());
 
-        for (int code = 1; code < alphabet.length - 1; code++) {
+        for (int code = 1; code < alphabet.length; code++) {
 
             decryptedVariants[code] = cipher.decrypt(encryptedText, code);
             //System.out.println("Brute forced code " + code + " encoded string: " + decryptedVariants[code]);
