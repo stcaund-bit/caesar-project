@@ -15,7 +15,7 @@ public class FileManager {
         try {
 
             //Path path = Paths.get(filePath);
-            return Files.readString(Paths.get(filePath), StandardCharsets.UTF_8).toLowerCase();
+            return Files.readString(Paths.get(filePath), StandardCharsets.UTF_8);
         } catch (IOException e) {
             throw new CipherException("Ошибка чтения из файла: " + filePath, e);
         }

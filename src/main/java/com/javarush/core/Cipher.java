@@ -17,8 +17,8 @@ public class Cipher {
         //  позицию символа ищем быстрее, чем перебором всего массива
         //
         // throw new UnsupportedOperationException("Метод encrypt пока не написан");
+        text = text.toLowerCase();
         String encrypted = "";
-        //System.out.println("Вошли в метод кодирования");
         TreeMap<Integer, Character> alphabetMap = new TreeMap<>();
         //StringBuilder builder = new StringBuilder();
         //System.out.println(alphabetMap);
@@ -30,7 +30,7 @@ public class Cipher {
         }
         //System.out.println(alphabetMap);
 
-        //делаем циклс кодировкой
+        //делаем цикл с кодировкой
         for (int i = 0; i < text.length(); i++) {
             if (alphabetMap.containsValue(text.charAt(i))) {
                 int symbolCode = -1;
