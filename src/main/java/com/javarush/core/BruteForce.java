@@ -1,6 +1,7 @@
 package com.javarush.core;
 
 public class BruteForce {
+    private static final int MAX_WORD_LENGTH = 30;
 
     public String decryptByBruteForce(String encryptedText, char[] alphabet) {
         Cipher cipher = new Cipher(alphabet);
@@ -9,6 +10,7 @@ public class BruteForce {
         int[] whitespacesAfterComma = new int[alphabet.length];
         int[] bruteForceRating = new int[alphabet.length];
         int[] whitespaces = new int[alphabet.length];
+        boolean hasVeryLongWord[] = new boolean[alphabet.length];
         int alphabetCapacity = alphabet.length;
         String[] decryptedVariants = new String[alphabetCapacity];
         for (int code = 1; code < alphabet.length; code++) {

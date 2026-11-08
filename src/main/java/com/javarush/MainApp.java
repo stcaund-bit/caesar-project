@@ -28,7 +28,6 @@ public class MainApp {
 
     private void run() {
 
-
         System.out.println("Шифр Цезаря: шифрование и расшифровка файлов");
 
         while (true) {
@@ -125,7 +124,7 @@ public class MainApp {
         }
         String fileTo = ask("Введите путь к файлу, в который будет записан расшифрованный текст: ");
         if (!validator.isFileNotExists(fileTo)) {
-            throw new CipherException("Файл для записи " + fileFrom + " уже существует! Введите другой файл для записи");
+            throw new CipherException("Файл для записи " + fileTo + " уже существует! Введите другой файл для записи");
         }
         String content = fileManager.readFile(fileFrom);
         System.out.println("Прочитан файл: " + fileFrom);
