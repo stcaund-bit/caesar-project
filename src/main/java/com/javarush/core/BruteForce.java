@@ -16,7 +16,7 @@ public class BruteForce {
         int[] wordsCount = new int[alphabet.length];
         int alphabetCapacity = alphabet.length;
         String[] decryptedVariants = new String[alphabetCapacity];
-        for (int code = 1; code < alphabet.length; code++) {
+        for (int code = 0; code < alphabet.length; code++) {
             decryptedVariants[code] = cipher.decrypt(encryptedText, code);
             String[] words = decryptedVariants[code].split(" ");
             wordsCount[code] = words.length;
